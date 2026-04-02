@@ -1,0 +1,83 @@
+.cardslist{
+    display: grid;
+
+    width: 15rem;
+    height: 8rem;
+
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0px 1px 4px rgba(53, 66, 91, 0.251);
+
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+
+    padding: 10px;
+
+}
+.card_header{
+    display: flex;
+    width: 80%;
+    padding-left: 2rem;
+    box-shadow: 0px 1px 0px rgba(53, 66, 91, 0.332);
+}
+.card_info{
+    display: flex;
+    width: 80%;
+    padding-left: 2rem;
+}
+.card_actions{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+.card_header p{
+    color: rgb(53, 66, 91);
+}
+.card_info p{
+    color: rgb(108, 118, 138);
+    font-size: 12px;
+}
+.open_btn{
+    cursor: pointer;
+    background-color: rgb(55, 124, 231);
+    width: 30%;
+    height: 80%;
+    color: white;
+    box-shadow: 0px 1px 4px rgba(53, 66, 91, 0.251);
+    border-radius: 2px;
+    border: 0;
+    transition: all 0.3s ease;
+}
+.open_btn:hover{
+    background-color: white;
+    color: rgb(55, 124, 231);
+}
+.edit_btn{
+    cursor: pointer;
+    width: 30%;
+    height: 80%;
+    color: rgb(53, 66, 91);
+    background-color: white;
+    box-shadow: 0px 1px 4px rgba(53, 66, 91, 0.251);
+    border-radius: 2px;
+    border: 0;
+    transition: all 0.3s ease;
+}
+.edit_btn:hover{
+    background-color: rgb(53, 66, 91);
+    color: white;
+}
+.delete_btn{
+    cursor: pointer;
+    width: 30%;
+    height: 80%;
+    color: rgb(163, 1, 1);
+    background-color: white;
+    box-shadow: 0px 1px 4px rgba(53, 66, 91, 0.251);
+    border-radius: 2px;
+    border: 0;
+    transition: all 0.3s ease;
+}
+.delete_btn:hover{
+    color: white;
+    background-color: rgb(163, 1, 1);
+}
