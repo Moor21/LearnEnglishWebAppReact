@@ -34,10 +34,7 @@ export const CardsProvider = ({children})=>{
         
     },[cardsOfCurrentCollection])
     const value = {currentCardsList, setCurrentCardsList, isOpen, setIsOpen, cardsCollections, setCardsCollections, cardsOfCurrentCollection, setCardsOfCurrentCollection};
-    
-    return(
-        <CardsContext.Provider value={value}>
+        return(<CardsContext.Provider value={value}>
             {children}
-        </CardsContext.Provider>
-    )
+        </CardsContext.Provider>)
 }

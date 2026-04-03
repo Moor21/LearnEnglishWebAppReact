@@ -14,6 +14,7 @@ function CardsPage() {
     setAddNewCollection(true);
   }
 
+
   return (
     <div className="cardspage">
       {!isOpen ? (

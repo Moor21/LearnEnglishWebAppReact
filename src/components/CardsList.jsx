@@ -18,7 +18,6 @@ function CardsList({ cardslist }) {
     setCurrentCardsList(cardslist);
     console.log("Current cardsList: ", currentCardsList)
     setCardsOfCurrentCollection(cardslist.cards);
-    console.log(cardslist);
   }
   function delete_btn_click() {
     setCardsCollections((prev) =>
@@ -32,9 +31,7 @@ function CardsList({ cardslist }) {
       </div>
       <div className="card_info">
         <p>{cardsOfCurrentCollection.length} Cards</p>
-      </div>
-      <div className="card_actions">
-        <button onClick={open_btn_click} className="open_btn">
+<button onClick={open_btn_click} className="open_btn">
           Open
         </button>
         <button className="edit_btn">Edit</button>

@@ -34,6 +34,7 @@ function Cards({ cards }) {
     console.log("Updated cardArrayObject: ", cardArrayObject);
     setCardsOfCurrentCollection(cardArrayObject);
   }, [cardArrayObject])
+
   return (
     <div className="cards_main_container">
       <div className="cards_main_menu">
@@ -51,6 +52,7 @@ function Cards({ cards }) {
             ←
           </button>
           <Card card={cardsOfCurrentCollection[currentCardId]} />
+
           <button onClick={increaseCurrentCardId} className="arrow_btn">
             →
           </button>
