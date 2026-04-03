@@ -1,12 +1,31 @@
-import {createContext, useContext, useState} from 'react';
+import {createContext, useContext, useState, useEffect} from 'react';
 
 const CardsContext = createContext();
 export const useCardsContext =()=>useContext(CardsContext);
 export const CardsProvider = ({children})=>{
-    const [cardsCollections, setCardsCollections] = useState([]);
-    const [currentCardsList, setCurrentCardsList] = useState({});
+    const [cardsCollections, setCardsCollections] = useState(()=>{
+       try{
+        const savedCollections = localStorage.getItem('collections');
+        return savedCollections ? JSON.parse(savedCollections) : [];
+       }catch(err){
+        console.error("Error reading localStorage: ", err);
+        return [];
+       }
+    });
+    const [currentCardsList, setCurrentCardsList] = useState(null);
+    const [currentCardsCollectionsCards, setCurrentCardsCollectionsCards] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
-    const value = {currentCardsList, setCurrentCardsList, isOpen, setIsOpen, cardsCollections, setCardsCollections};
+    useEffect(()=>{
+        const card_collections = localStorage.getItem('collections');
+        if (card_collections) setCardsCollections(JSON.parse(card_collections));
+        console.log("The collections is gotten from localStorage: ", card_collections);
+    },[])
+    useEffect(()=>{
+        localStorage.setItem('collections', JSON.stringify(cardsCollections));
+        console.log("The new collection is added in localStorage: ",JSON.stringify(cardsCollections) );
+    },[cardsCollections])
+    const value = {currentCardsList, setCurrentCardsList, isOpen, setIsOpen, cardsCollections, setCardsCollections, currentCardsCollectionsCards, setCurrentCardsCollectionsCards};
+    
     return(
         <CardsContext.Provider value={value}>
             {children}

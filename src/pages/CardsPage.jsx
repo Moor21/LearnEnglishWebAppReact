@@ -5,7 +5,7 @@ import { useCardsContext } from "../contexts/CardsContext";
 import Cards from "../components/Cards";
 import NewListConfMenu from '../components/NewListConfMenu';
 function CardsPage() {
-  const { currentCardsList, setCurrentCardsList, isOpen, setIsOpen } = useCardsContext();
+  const { currentCardsList, setCurrentCardsList, isOpen, setIsOpen, cardsCollections, setCardsCollections } = useCardsContext();
   const [addNewCollection, setAddNewCollection] = useState(false);
   useEffect(() => {
     console.log("The currentCardsList have been choisen! ", currentCardsList);
@@ -33,7 +33,7 @@ function CardsPage() {
           <button onClick={add_new_collection} className="add_btn">✚</button>
           </div> 
           <div className="cardsGrid">
-            {cardslist_arr.map((cardslist) => (
+            {cardsCollections.map((cardslist) => (
               <CardsList cardslist={cardslist} key={cardslist.id} />
             ))}
           </div>

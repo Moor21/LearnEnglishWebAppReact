@@ -15,10 +15,13 @@ function NewListConfMenu({ setAddNewCollection }) {
       inputRef.current.focus();
       alert("Please, enter the name of the new collection");
     } else {
-      setCardsCollections((prev) => [
-        ...prev,
-        { title: inputRef.current.value.trim() },
-      ]);
+      setCardsCollections((prev) => {
+        const max_id =prev.length > 0 ? Math.max(...prev.map((collection)=>collection.id)) : 0;
+        return [
+          ...prev,
+          { id: max_id + 1, title: inputRef.current.value.trim(), cards: [] },
+        ];
+      });
       close_btn();
     }
   }
